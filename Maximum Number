@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	//Initialize the 5-length array
+	int Numbers[5];
+	
+	cout << "Find biggest or Biggest Number (Array)\n";
+	
+	// Initialize the count just for displaying numbers in ascending order
+	int count = 1;
+	
+	for (int i = 0; i < 5; i++)
+	{
+		// Prompt the user for the Number 5 times
+		cout << "Enter the Number : " << count << "  : ";
+		
+		// Take the input and store it in the specific location 
+		cin >> Numbers[i];
+		
+		// Incrementing the count
+		count ++;
+	}
+
+	
+	// Suppose the first element of the array is biggest for now
+	int maximum_value = Numbers[0];
+	
+	// Iterate through the entire Array to find out the biggest number
+	for (int i = 1; i < 5; i++)
+	{
+		/* Check if the next number in the array is greater than the value stored in the maximum_value variable */
+		if (Numbers[i] > maximum_value)
+		{
+			/* If True (greater) stored that value in the maximum_value variable */
+			maximum_value = Numbers[i];
+		}
+	}
+	
+	// Finally, Display the Largest number in the Array
+	cout << "\n\nLargest /Biggest Number Is : " << maximum_value << endl;
+}
