@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	// Initialization of necessary variables
+    int rank;
+    char option;
+    float basicPay, grossSalary, houseRentAllowance	, utilitiesAllowance, medicalAllowance, fuelAllowance;
+    
+    // Restart Program if user wants to continue otherwise terminate
+    do
+    {
+    	// Prompt the user for Basic Salary and his/her Rank
+        cout << "Enter the Basic Salary: ";
+        cin >> basicPay;
+
+        cout << "\nSelect your Grade/Rank: 1, 2, 3: ";
+        cin >> rank;
+
+		// Calculate all Allowances
+        houseRentAllowance	 = 0.45 * basicPay;
+        utilitiesAllowance = 0.15 * basicPay;    
+        medicalAllowance = 0.15 * basicPay;
+		
+		// Decide the Fuel Allowance according to the User Rank/Grade
+        switch (rank)
+        {
+        case 1:
+            fuelAllowance = 15000;
+            break;
+        case 2:
+            fuelAllowance = 10000;
+            break;
+        case 3:
+            fuelAllowance = 5000;
+            break;
+        default:
+            cout << "\nInvalid Grade\n\n";
+        }
+        
+        // Display Allowances & Total only if the grade is between 1-3 (1,3 inclusive)
+        if (rank > 0 && rank < 4)
+        {
+	        cout << "\nHouse Rent Allowance = " << houseRentAllowance	 << endl;
+	        cout << "Utilities Allowance = " << utilitiesAllowance << endl;
+	        cout << "Medical Allowance = " << medicalAllowance << endl;
+	        cout << "Fuel Allowance = " << fuelAllowance << endl;
+	        
+	        grossSalary = basicPay + houseRentAllowance	 + utilitiesAllowance + medicalAllowance + fuelAllowance;
+	                
+        	cout << "\nGross Salary = " << grossSalary << endl;
+        }
+        
+        // Validation for Options (Y/N) (y/n)
+        // Re Prompt user if option not in (Y/N) (y/n)
+        do
+        {
+            cout << "Do you want to continue: Y/N: ";
+            cin >> option;
+            cout << endl;
+        }
+        while (option != 'Y' && option != 'y' && option != 'N' && option != 'n');
+        
+    } while (option != 'n' && option != 'N');
+	
+	// Finally, Display the following message
+    cout << "\nProgram Terminated";
+    
+    return 0;
+}
