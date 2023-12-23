@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	// Initialize the necessary Variables
+    float total_marks, obtained_marks;
+    char choice;
+    float percentage;
+	
+	// Display these statements atleast once
+    do
+    {
+    	// Prompt the user for Total Marks and also take input from him
+        cout << "Enter Total Marks: ";
+        cin >> total_marks;
+
+		// Prompt again the user for Obtained Marks and also take input from him
+        cout << "Enter Obtained Marks: ";
+        cin >> obtained_marks;
+
+		// Formula for the Percentage
+        percentage = obtained_marks / total_marks * 100;
+
+		// Display the percentage
+        cout << "\nPercentage: " << percentage << "%\n\n";
+
+		// Make sure the user Enter either (Y,y) or (N,n)
+        do
+        {
+            // Prompt the user for an option (Y/N) either he wants to continue or not
+            cout << "Do You Want To Continue? (Y/N): ";
+            cin >> choice;
+            cout << endl;
+			
+			// If the user didn't enter any of the below option then the program will reprompt him
+        } while (choice != 'y' && choice != 'Y' && choice != 'n' && choice != 'N');
+    }
+
+	// If the user Enter (N,n) then the condition will become false
+    while (choice != 'n' && choice != 'N');
+
+	// The program will eventually comes out from the loop and print the below Statement
+    cout << "\nProgram Terminated\n";
+}
